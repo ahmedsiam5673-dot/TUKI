@@ -1,0 +1,44 @@
+:root {
+  --bg: #11181c;
+  --fg: #e8f1ee;
+  --muted: #8fa5a0;
+  --teal: #3ddbb0;
+  --amber: #ffb84d;
+  --red: #ff6b6b;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: transparent; overflow: hidden; font-family: "Segoe UI", system-ui, sans-serif; color: var(--fg); user-select: none; }
+
+#island {
+  background: var(--bg);
+  border-radius: 24px;
+  margin: 0 auto;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,.06);
+}
+#pill { display: flex; align-items: center; gap: 8px; height: 62px; padding: 0 16px 0 10px; }
+#tuki { width: 48px; height: 48px; flex: none; }
+#label { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
+#state { font-size: 13px; font-weight: 600; }
+#detail { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 330px; }
+
+#island.working #state { color: var(--teal); }
+#island.waiting #state { color: var(--amber); }
+#island.alert   #state { color: var(--red); }
+
+#card { padding: 4px 16px 16px; }
+#card-head { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+#card-tool { color: var(--amber); font-weight: 600; }
+#card-body {
+  background: #0b1114; border-radius: 10px; padding: 10px 12px;
+  font: 12px/1.45 Consolas, "Cascadia Mono", monospace; color: var(--fg);
+  max-height: 84px; overflow: hidden; white-space: pre-wrap; word-break: break-all;
+}
+#card-cwd { font-size: 11px; color: var(--muted); margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#buttons { display: flex; gap: 8px; margin-top: 12px; }
+.btn { flex: 1; border: 0; border-radius: 10px; padding: 9px 0; font: 600 13px "Segoe UI", system-ui, sans-serif; cursor: pointer; transition: filter .12s, transform .06s; }
+.btn:hover { filter: brightness(1.12); }
+.btn:active { transform: scale(.97); }
+.allow { background: var(--teal); color: #07231b; }
+.deny { background: var(--red); color: #2a0a0a; }
+.ghost { background: #1d282d; color: var(--fg); flex: 1.4; }

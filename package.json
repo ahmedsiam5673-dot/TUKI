@@ -1,0 +1,17 @@
+{
+  "name": "tuki",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tuki: a tiny companion at the top of your screen that watches your Claude Code sessions.",
+  "scripts": {
+    "hook": "cargo build --release --manifest-path hook/Cargo.toml",
+    "install-hooks": "node scripts/install-hooks.mjs",
+    "uninstall-hooks": "node scripts/install-hooks.mjs --uninstall",
+    "dev": "tauri dev",
+    "pack": "npm run hook && tauri build",
+    "build": "npm run hook && tauri build --no-bundle"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2"
+  }
+}

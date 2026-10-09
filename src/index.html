@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tuki</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="island" class="idle">
+    <div id="pill">
+      <canvas id="tuki" width="96" height="96"></canvas>
+      <div id="label"><span id="state">Sleeping</span><span id="detail"></span></div>
+    </div>
+    <div id="card" hidden>
+      <div id="card-head"><span id="card-tool"></span><span id="card-count"></span></div>
+      <pre id="card-body"></pre>
+      <div id="card-cwd"></div>
+      <div id="buttons">
+        <button id="deny" class="btn deny">Deny</button>
+        <button id="terminal" class="btn ghost">Ask in terminal</button>
+        <button id="allow" class="btn allow">Allow</button>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
