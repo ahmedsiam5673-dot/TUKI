@@ -1,0 +1,28 @@
+name: Build Tuki for Windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: dtolnay/rust-toolchain@stable
+      - run: npm install
+      - run: npm run build
+      - name: Collect files
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path out | Out-Null
+          Copy-Item src-tauri/target/release/tuki.exe out/
+          Copy-Item hook/target/release/tuki-hook.exe out/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Tuki-Windows
+          path: out/
